@@ -66,7 +66,7 @@ class NereidUser(metaclass=PoolMeta):
                     error='The party is not valid'
                 ), 400
             flash("The party is not valid")
-        if request.is_xhr:
+        if request.is_xhr or request.accept_mimetypes.accept_json:
             return jsonify(
                 success='Party has been changed successfully'
             )
